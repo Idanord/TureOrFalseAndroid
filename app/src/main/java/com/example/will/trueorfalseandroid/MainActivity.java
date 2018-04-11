@@ -38,6 +38,8 @@ public class MainActivity extends Activity {
         mQuestions = new Questions();
         questionsLength = mQuestions.myQuestions.length;
 
+        questionsList = new ArrayList<>();
+
         //save all the questions in the list
         for(int i = 0; i < questionsLength; i++){
             questionsList.add(new Item(mQuestions.getQuestions(i), mQuestions.getAnswers(i)));
