@@ -25,6 +25,7 @@ public class MainActivity extends Activity {
     //set current question value
     int currentQuestion = 0;
     boolean winner = false;
+    boolean lose = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class MainActivity extends Activity {
         trueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(checkQuestion(currentQuestion)){
+                if(!checkQuestion(currentQuestion)){
                     //correct - the game continues
                     currentQuestion++;
                     if(currentQuestion < questionsLength){
@@ -66,6 +67,7 @@ public class MainActivity extends Activity {
                     }
                 } else {
                     //wrong = the game ends
+                    lose = true;
                     endGame();
                 }
             }
@@ -86,6 +88,7 @@ public class MainActivity extends Activity {
                     }
                 } else {
                     //wrong = the game ends
+                    lose = true;
                     endGame();
                 }
             }
@@ -107,10 +110,10 @@ public class MainActivity extends Activity {
     private void endGame(){
         if(winner){
             Toast.makeText(this, "Game Over! You Win!", Toast.LENGTH_SHORT).show();
-            finish();
+            //finish();
         } else {
             Toast.makeText(this, "Game Over! You Lose!", Toast.LENGTH_SHORT).show();
-            finish();
+            //finish();
         }
     }
 }
